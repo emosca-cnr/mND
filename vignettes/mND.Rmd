@@ -21,8 +21,9 @@ This document describes the R package mND [@mND], a new network diffusion based 
 
 The package can be installed from within R:
 ```{r, eval=FALSE}
-install.packages("igraph") 
-install.packages("/path_to_package/mND_xxx.tar.gz", repos = NULL)
+install.packages(c("devtools", "igraph", "parallel"))
+library(devtools)
+install_github("emosca-cnr/mND", build_vignettes = TRUE)
 library(mND)
 ```
 
