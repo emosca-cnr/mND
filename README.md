@@ -13,6 +13,7 @@ Di Nanni N, Gnocchi M, Moscatelli M, Milanesi L and Mosca E, *Gene relevance bas
 ## Installation
 ```{r, eval=FALSE}
 install.packages(c("devtools", "igraph"))
+library(devtools)
 install_github("emosca-cnr/mND")
 ```
 
