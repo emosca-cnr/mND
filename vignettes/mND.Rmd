@@ -8,12 +8,14 @@ output:
   fig_height: 3.5
 bibliography: reference.bib 
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Gene relevance based on multiple evidences in complex networks.}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
-##Description
+![https://doi.org/10.1093/bioinformatics/btz652](overview.jpeg)
+
+## Description
 
 This document describes the R package mND [@mND], a new network diffusion based method for integrative multi-omics analysis.
 

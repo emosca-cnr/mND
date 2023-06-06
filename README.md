@@ -2,7 +2,7 @@
 
 mND uses **m**ulti-layer **N**etwork **D**iffusion to find gene networks that contain high scoring genes. It considers two or more "layers" of genome-wide scores and an interactome. 
 
-![Overview of mND](vignettes/overview.jpeg)
+<img src="vignettes/overview.jpeg">
 
 image from: https://academic.oup.com/bioinformatics/article/36/3/865/5553095
 
