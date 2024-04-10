@@ -6,8 +6,9 @@ mND uses **m**ulti-layer **N**etwork **D**iffusion to find gene networks that co
 
 image from: https://academic.oup.com/bioinformatics/article/36/3/865/5553095
 
-Documentation: https://emosca-cnr.github.io/mND
-Source code: https://github.com/emosca-cnr/mND
+## Documentation:
+
+https://emosca-cnr.github.io/mND
 
 ## Citation
 

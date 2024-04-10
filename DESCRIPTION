@@ -3,7 +3,18 @@ Type: Package
 Title: Gene relevance based on multiple evidences in complex networks
 Version: 2.0
 Date: 2024-04-09
-Author: Noemi Di Nanni [aut], Ettore Mosca [aut, cre]
+Authors@R: 
+     c(person(given = "Noemi",
+           family = "Di Nanni",
+           role = c("aut"),
+           email = "noemi.dinanni@itb.cnr.it",
+           comment = c(ORCID = " 0000-0002-6399-321X")),
+      person(given = "Ettore",
+             family = "Mosca",
+             role = c("aut", "cre"),
+             email = "ettore.mosca@itb.cnr.it",
+            comment = c(ORCID = "0000-0002-3102-5150"))
+            )
 Maintainer: Ettore Mosca <ettore.mosca@itb.cnr.it>
 Description: Network analysis of multi-omics data by means of mult-layer network diffusion (mND).
 License: GPL (>=2)
