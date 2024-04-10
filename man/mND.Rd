@@ -4,7 +4,7 @@
 \alias{mND}
 \title{mND score}
 \usage{
-mND(Xs, ind_adj, k = 3, cores = 1)
+mND(Xs = NULL, ind_adj = NULL, k = 3, BPPARAM = NULL, min.norm.val = 0)
 }
 \arguments{
 \item{Xs}{a matrix or list of matrices (if X0 was permuted, where the first element of the list is the one obtained with real data) with network diffusion scores, see 'ND' function}
@@ -13,7 +13,9 @@ mND(Xs, ind_adj, k = 3, cores = 1)
 
 \item{k}{numeric; number of top k first neighbors}
 
-\item{cores}{numeric; number of cores to run in parallel in case of permutations}
+\item{BPPARAM}{optional BiocParallelParam instance determining the parallel back-end to be used during evaluation. If NULL, parallel evaluation is disabled using SerialParam(). See ?bplapply.}
+
+\item{min.norm.val}{normalized ND values below this value will be set to 0; this is useful to denoise the steady state of ND and focus only on the highest scores}
 }
 \value{
 list with:

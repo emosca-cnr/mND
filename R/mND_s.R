@@ -2,6 +2,7 @@
 #' @param output Xs
 #' @param ind_adj index of neighbours obtained from adj matrix, see 'neighbour_index' function
 #' @param k number of top k first neighbors
+#' @param min.norm.val normalized ND values below this value will be set to 0; this is useful to denoise the steady state of ND and focus only on the highest scores 
 #' @return a list with:
 #' \itemize{
 #' \item{\code{mND}}{: mND score}
@@ -10,14 +11,18 @@
 #'
 
 
-mND_s <- function(output, ind_adj, k){
+mND_s <- function(output=NULL, ind_adj=NULL, k=NULL, min.norm.val=0){
 
-  Xs<-  apply(output, 2, function(x) x/max(x))
+  Xs <- apply(output, 2, function(x) x/max(x))
   Xs <- as.data.frame(Xs)
-  Xs <- Xs[match(names(ind_adj), rownames(Xs)),]
+  Xs <- Xs[match(names(ind_adj), rownames(Xs)), ]
+  
+  if(min.norm.val>0){
+    Xs[Xs < min.norm.val] <- 0
+  }
 
   if(identical(rownames(Xs), names(ind_adj))==FALSE){
-    stop("Rownames of Xs and W are to be in the same order.")
+    stop("Rownames of Xs and W must be identical.")
   }
 
   layer_number <- dim(Xs)[2]

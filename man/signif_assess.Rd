@@ -4,10 +4,12 @@
 \alias{signif_assess}
 \title{Significance assessment}
 \usage{
-signif_assess(mND)
+signif_assess(mND = NULL, BPPARAM = NULL)
 }
 \arguments{
 \item{mND}{list; output of 'mND' function}
+
+\item{BPPARAM}{optional BiocParallelParam instance determining the parallel back-end to be used during evaluation. If NULL, parallel evaluation is disabled using SerialParam(). See ?bplapply.}
 }
 \value{
 list with:

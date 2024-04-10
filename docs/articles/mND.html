@@ -6,12 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="mND">
-<title>Gene relevance based on multiple evidences in complex networks. • mND</title>
+<title>mND: Gene relevance based on multiple evidences in complex networks. • mND</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Gene relevance based on multiple evidences in complex networks.">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="mND: Gene relevance based on multiple evidences in complex networks.">
 <meta property="og:description" content="mND">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">mND</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.7</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,11 +58,9 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Gene relevance based on multiple evidences in complex networks.</h1>
-                        <h4 data-toc-skip class="author">Noemi Di Nanni
-&amp; Ettore Mosca</h4>
+      <img src="" class="logo" alt=""><h1>mND: Gene relevance based on multiple evidences in complex networks.</h1>
             
-            <h4 data-toc-skip class="date">2019-05-8</h4>
+            <h4 data-toc-skip class="date">2024-04-09</h4>
       
       
       <div class="d-none name"><code>mND.Rmd</code></div>
@@ -71,10 +69,10 @@
     
     
 <div class="figure">
-<img src="overview.jpeg" alt=""><p class="caption"><a href="https://doi.org/10.1093/bioinformatics/btz652" class="external-link uri">https://doi.org/10.1093/bioinformatics/btz652</a></p>
+<img src="overview.jpeg" style="width:80.0%" alt=""><p class="caption"><a href="https://doi.org/10.1093/bioinformatics/btz652" class="external-link uri">https://doi.org/10.1093/bioinformatics/btz652</a></p>
 </div>
 <div class="section level2">
-<h2 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
+<h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>This document describes the R package mND <span class="citation">(Di
 Nanni et al. 2019)</span>, a new network diffusion based method for
@@ -85,49 +83,59 @@ integrative multi-omics analysis.</p>
 </h2>
 <p>The package can be installed from within R:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"devtools"</span>, <span class="st">"igraph"</span>, <span class="st">"parallel"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"emosca-cnr/mND"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"devtools"</span>, <span class="st">"igraph"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"emosca-cnr/mND"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span></code></pre></div>
-<p>##Input data The package requires:</p>
+</div>
+<div class="section level2">
+<h2 id="definition-of-the-input-matrices">Definition of the input matrices<a class="anchor" aria-label="anchor" href="#definition-of-the-input-matrices"></a>
+</h2>
+<p>The analysis requires the following inputs:</p>
 <ul>
-<li>An adjacency matrix (<span class="math inline">\(A\)</span>) of
-undirected interaction network <span class="math inline">\(G\)</span>;</li>
-<li>A score matrix <span class="math inline">\(X0=[x_1, x_2, ...,
-x_L]\)</span>, in which each column <span class="math inline">\(x_i\)</span> (layer) represents a score vector
-over all vertices of <span class="math inline">\(G\)</span>.</li>
-<li>The number of top k-neighbour to consider (<span class="math inline">\(k\)</span>).</li>
+<li>
+<span class="math inline">\(\mathbf{W}\)</span>, an <span class="math inline">\(N \times N\)</span> <em>normalized adjacency
+matrix</em>, which represents the interactions between genes, e.g.:</li>
 </ul>
-<p>Optional arguments are:</p>
+<pre><code><span><span class="co">## 5 x 5 sparse Matrix of class "dgCMatrix"</span></span>
+<span><span class="co">##              A1BG        A2M A4GALT A4GNT AAAS</span></span>
+<span><span class="co">## A1BG   .          0.01022807      .     .    .</span></span>
+<span><span class="co">## A2M    0.01022807 .               .     .    .</span></span>
+<span><span class="co">## A4GALT .          .               .     .    .</span></span>
+<span><span class="co">## A4GNT  .          .               .     .    .</span></span>
+<span><span class="co">## AAAS   .          .               .     .    .</span></span></code></pre>
 <ul>
-<li>Number of permutations (<span class="math inline">\(r\)</span>) of
-the input matrix;</li>
-<li>Number of cores (<span class="math inline">\(cores\)</span>).</li>
+<li>
+<span class="math inline">\(\mathbf{X}_0\)</span>, a <span class="math inline">\(N \times m\)</span> matrix with column vectors
+that contain gene-related quantities, e.g.:</li>
+</ul>
+<pre><code><span><span class="co">##                L1         L2</span></span>
+<span><span class="co">## A1BG   0.00000000 0.00000000</span></span>
+<span><span class="co">## A2M    0.02857143 8.96179484</span></span>
+<span><span class="co">## A4GALT 0.00000000 1.55085417</span></span>
+<span><span class="co">## A4GNT  0.00000000 0.00000000</span></span>
+<span><span class="co">## AAAS   0.00000000 0.05228165</span></span>
+<span><span class="co">## AACS   0.00000000 1.22029740</span></span>
+<span><span class="co">## AADAT  0.00000000 1.90713768</span></span>
+<span><span class="co">## AAK1   0.00000000 0.15747190</span></span>
+<span><span class="co">## AAMP   0.00000000 0.56363846</span></span>
+<span><span class="co">## AANAT  0.00000000 0.00000000</span></span></code></pre>
+<p><strong>IMPORTANT</strong>:</p>
+<ul>
+<li>the two matrices must be defined over the same identifiers;</li>
+<li>the normalization of the adjacency matrix must be done by means of
+the function <code><a href="https://rdrr.io/pkg/NPATools/man/normalize_adj_mat.html" class="external-link">NPATools::normalize_adj_mat()</a></code>, which requires
+a symmetric binary adjacency matrix;</li>
+<li>the relevance of the genes corresponding to the rows of <span class="math inline">\(\mathbf{X}_0\)</span> is proportional to the
+values, that is, the higher the better; negative values are not
+allowed.</li>
 </ul>
 </div>
 <div class="section level2">
-<h2 id="summary">Summary<a class="anchor" aria-label="anchor" href="#summary"></a>
+<h2 id="case-study-integration-of-mutation-and-expression-changes-in-breast-cancer">Case study: integration of mutation and expression changes in breast
+cancer<a class="anchor" aria-label="anchor" href="#case-study-integration-of-mutation-and-expression-changes-in-breast-cancer"></a>
 </h2>
-<p>All the analysis can be run using the following functions:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">W</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/normalize_adj_mat.html">normalize_adj_mat</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
-<span><span class="va">X0_perm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/perm_X0.html">perm_X0</a></span><span class="op">(</span><span class="va">X0</span>, r <span class="op">=</span> <span class="fl">50</span>, <span class="va">W</span><span class="op">)</span></span>
-<span><span class="va">Xs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ND.html">ND</a></span><span class="op">(</span><span class="va">X0_perm</span>, <span class="va">W</span>, cores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">ind_adj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/neighbour_index.html">neighbour_index</a></span><span class="op">(</span><span class="va">W</span><span class="op">)</span></span>
-<span><span class="va">mND_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mND.html">mND</a></span><span class="op">(</span><span class="va">Xs</span>, <span class="va">ind_adj</span>, k <span class="op">=</span> <span class="fl">3</span>, cores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">mND_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/signif_assess.html">signif_assess</a></span><span class="op">(</span><span class="va">mND_score</span><span class="op">)</span></span>
-<span><span class="va">class_res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/classification.html">classification</a></span><span class="op">(</span><span class="va">mND_score</span>, <span class="va">X0</span>, <span class="va">Hl</span>, <span class="va">top</span>, <span class="va">alpha</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/plot_results.html">plot_results</a></span><span class="op">(</span><span class="va">mND_score</span>, <span class="va">class_res</span>, <span class="va">W</span>, n <span class="op">=</span> <span class="fl">150</span>, directory <span class="op">=</span> <span class="st">"~/mND_results"</span><span class="op">)</span></span></code></pre></div>
-<p>Most of the analyses can be easily carried out through the wrapper
-function <code>framework_mND</code>:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">W</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/normalize_adj_mat.html">normalize_adj_mat</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
-<span><span class="va">mND_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/framework_mND.html">framework_mND</a></span><span class="op">(</span><span class="va">X0</span>, <span class="va">W</span>, k <span class="op">=</span> <span class="fl">3</span>, r <span class="op">=</span> <span class="fl">50</span>, cores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">class_res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/classification.html">classification</a></span><span class="op">(</span><span class="va">mND_score</span>, <span class="va">X0</span>, <span class="va">Hl</span>, <span class="va">top</span>, <span class="va">alpha</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/plot_results.html">plot_results</a></span><span class="op">(</span><span class="va">mND_score</span>, <span class="va">class_res</span>, <span class="va">W</span>, n <span class="op">=</span> <span class="fl">150</span>, directory <span class="op">=</span> <span class="st">"~/mND_results"</span><span class="op">)</span></span></code></pre></div>
-<p>##Case study: integration of mutation and expression changes in
-breast cancer As proof of principle, mND is applied to find functionally
-related genes on the basis of gene mutations (<span class="math inline">\(L_1\)</span>) and gene expression variation (<span class="math inline">\(L_2\)</span>) in breast cancer (BC).</p>
+<p>As proof of principle, mND is applied to find functionally related
+genes on the basis of gene mutations (<span class="math inline">\(L_1\)</span>) and gene expression variation (<span class="math inline">\(L_2\)</span>) in breast cancer (BC).</p>
 <p>Somatic mutations and gene expression data from matched tumour-normal
 samples (blood for SM and solid tissue for GE) were collected from The
 Cancer Genome Atlas (TCGA) <span class="citation">(Tomczak et al.
@@ -144,43 +152,97 @@ one mutation.</p>
 al. 2015)</span> was used to normalize and quantify differential
 expression in matched tumor-normal samples, yielding log-fold changes,
 the corresponding p-values and FDRs (BH method).</p>
-<p>Adjacency matrix (<span class="math inline">\(A\)</span>) of
-undirected interaction network STRING <span class="citation">(Szklarczyk
-et al. 2015)</span> was used; <span class="math inline">\(X0\)</span>
-matrix was defined as the two column vectors: <span class="math inline">\(x_1 = f\)</span> and <span class="math inline">\(x_2 = -log_{10}(FDR)\)</span>.</p>
-<p>You can load <span class="math inline">\(X0\)</span> and <span class="math inline">\(A\)</span> as follows:</p>
+<p>We obtained the normalized adjacency matrix (<span class="math inline">\(W\)</span>) using the interactions available in
+STRING <span class="citation">(Szklarczyk et al. 2015)</span>, while
+<span class="math inline">\(X0\)</span> matrix was defined as the two
+column vectors: <span class="math inline">\(x_1 = f\)</span> and <span class="math inline">\(x_2 = -log_{10}(FDR)\)</span>.</p>
+</div>
+<div class="section level2">
+<h2 id="permutations">Permutations<a class="anchor" aria-label="anchor" href="#permutations"></a>
+</h2>
+<p>A set of <span class="math inline">\(k\)</span> permutations can be
+created using the two functions of NPATools <code>perm_vertices()</code>
+and <code>perm_X0()</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">X0</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">X0</span>,<span class="fl">3</span><span class="op">)</span> <span class="co">#L1: mutations, L2: gene expression variations</span></span>
-<span><span class="co">##        L1        L2</span></span>
-<span><span class="co">## FAM3C   0 0.5039283</span></span>
-<span><span class="co">## VTI1B   0 2.3264157</span></span>
-<span><span class="co">## MAGED2  0 3.1520429</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="co">#adjacency matrix of STRING itnteractome</span></span></code></pre></div>
-<p>Let’s normalize the adjacency matrix <span class="math inline">\(W\)</span> and create 50 permutations of <span class="math inline">\(X0\)</span>. The list X0_perm has 51 elements, the
-first is the input matrix <span class="math inline">\(X0\)</span>, the
-others are its permutations; you can load precomputed permutations using
-<code>data(X0_perm)</code>, these permutations are obtained with seed
-equal to 2.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span><span class="va">W</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/normalize_adj_mat.html">normalize_adj_mat</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
-<span><span class="va">X0_perm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/perm_X0.html">perm_X0</a></span><span class="op">(</span><span class="va">X0</span>, r <span class="op">=</span> <span class="fl">50</span>, <span class="va">W</span>, seed_n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p>Now, let’s apply network diffusion to our list X0_perm; you can load
-precomputed diffused scores using <code>data(Xs)</code>:</p>
+<code class="sourceCode R"><span><span class="va">vert_deg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/setNames.html" class="external-link">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sign.html" class="external-link">sign</a></span><span class="op">(</span><span class="va">W</span><span class="op">)</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">W</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">perms</span> <span class="op">&lt;-</span> <span class="fu">perm_vertices</span><span class="op">(</span><span class="va">vert_deg</span>, method <span class="op">=</span> <span class="st">"d"</span>, k <span class="op">=</span> <span class="fl">99</span>, cut_par <span class="op">=</span> <span class="fl">9</span>, bin_type <span class="op">=</span> <span class="st">"number"</span><span class="op">)</span></span>
+<span><span class="va">X0_perm</span> <span class="op">&lt;-</span> <span class="fu">perm_X0</span><span class="op">(</span><span class="va">X0</span>, perms <span class="op">=</span> <span class="va">perms</span><span class="op">)</span></span></code></pre></div>
+<p>Here’s how X0_perm should look like:</p>
+<pre><code><span><span class="co">## [[1]]</span></span>
+<span><span class="co">##                L1         L2</span></span>
+<span><span class="co">## A1BG   0.00000000 0.00000000</span></span>
+<span><span class="co">## A2M    0.02857143 8.96179484</span></span>
+<span><span class="co">## A4GALT 0.00000000 1.55085417</span></span>
+<span><span class="co">## A4GNT  0.00000000 0.00000000</span></span>
+<span><span class="co">## AAAS   0.00000000 0.05228165</span></span>
+<span><span class="co">## AACS   0.00000000 1.22029740</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## [[2]]</span></span>
+<span><span class="co">##        L1         L2</span></span>
+<span><span class="co">## A1BG    0  0.8572643</span></span>
+<span><span class="co">## A2M     0  0.3011823</span></span>
+<span><span class="co">## A4GALT  0  1.5670347</span></span>
+<span><span class="co">## A4GNT   0  0.0000000</span></span>
+<span><span class="co">## AAAS    0  0.2135351</span></span>
+<span><span class="co">## AACS    0 13.2177268</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## [[3]]</span></span>
+<span><span class="co">##        L1          L2</span></span>
+<span><span class="co">## A1BG    0 13.76818832</span></span>
+<span><span class="co">## A2M     0  0.04274783</span></span>
+<span><span class="co">## A4GALT  0  0.00000000</span></span>
+<span><span class="co">## A4GNT   0  0.95558990</span></span>
+<span><span class="co">## AAAS    0  0.39716219</span></span>
+<span><span class="co">## AACS    0  2.83201647</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="network-diffusion-nd">Network Diffusion (ND)<a class="anchor" aria-label="anchor" href="#network-diffusion-nd"></a>
+</h2>
+<p>Next, we run the ND over the list of permutations
+<code>X0_perm</code>. This can be time-consuming, so it’s a good idea to
+run it in parallel:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span><span class="va">Xs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ND.html">ND</a></span><span class="op">(</span><span class="va">X0_perm</span>, <span class="va">W</span>, cores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
-<p>Network-diffusion, which quantifies the network proximity of each
-gene to other altered genes (positive elements of <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>), transformed the input vector <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> into <span class="math inline">\(x_1^*\)</span> and <span class="math inline">\(x_2^*\)</span> respectively.</p>
-<p><img src="mND_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
-<p>Let’s use the function <code>neighbour_index</code> to retrive the
-list of gene neighbours indexes from the adjacency matrix:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span><span class="va">ind_adj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/neighbour_index.html">neighbour_index</a></span><span class="op">(</span><span class="va">W</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">BPPARAM</span> <span class="op">&lt;-</span> <span class="fu">MulticoreParam</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="va">Xs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/run_ND.html">run_ND</a></span><span class="op">(</span>X0 <span class="op">=</span> <span class="va">X0_perm</span>, W<span class="op">=</span><span class="va">W</span>, BPPARAM <span class="op">=</span> <span class="va">BPPARAM</span><span class="op">)</span></span></code></pre></div>
+<p>Here’s how <span class="math inline">\(Xs\)</span> should look
+like:</p>
+<pre><code><span><span class="co">## [[1]]</span></span>
+<span><span class="co">## 6 x 2 sparse Matrix of class "dgCMatrix"</span></span>
+<span><span class="co">##                 L1       L2</span></span>
+<span><span class="co">## A1BG   0.002673605 2.124002</span></span>
+<span><span class="co">## A2M    0.012289714 5.677907</span></span>
+<span><span class="co">## A4GALT 0.001611545 1.421157</span></span>
+<span><span class="co">## A4GNT  0.004937741 1.129887</span></span>
+<span><span class="co">## AAAS   0.002960363 2.692766</span></span>
+<span><span class="co">## AACS   0.001881384 1.844737</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## [[2]]</span></span>
+<span><span class="co">## 6 x 2 sparse Matrix of class "dgCMatrix"</span></span>
+<span><span class="co">##                  L1       L2</span></span>
+<span><span class="co">## A1BG   0.0016064812 2.150362</span></span>
+<span><span class="co">## A2M    0.0030956274 2.597173</span></span>
+<span><span class="co">## A4GALT 0.0033493021 1.633948</span></span>
+<span><span class="co">## A4GNT  0.0007315544 1.116432</span></span>
+<span><span class="co">## AAAS   0.0026187676 2.287970</span></span>
+<span><span class="co">## AACS   0.0013791022 5.615316</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## [[3]]</span></span>
+<span><span class="co">## 6 x 2 sparse Matrix of class "dgCMatrix"</span></span>
+<span><span class="co">##                  L1       L2</span></span>
+<span><span class="co">## A1BG   0.0028715207 6.257685</span></span>
+<span><span class="co">## A2M    0.0033531495 2.999654</span></span>
+<span><span class="co">## A4GALT 0.0027329278 1.220188</span></span>
+<span><span class="co">## A4GNT  0.0009566958 1.400646</span></span>
+<span><span class="co">## AAAS   0.0032222772 2.285644</span></span>
+<span><span class="co">## AACS   0.0014454559 2.526037</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="calculation-of-mnd-score-and-significance-assessment">Calculation of mND score and significance assessment<a class="anchor" aria-label="anchor" href="#calculation-of-mnd-score-and-significance-assessment"></a>
+</h2>
+<p>Let’s use the function <code>neighbour_index</code> to retrieve the
+list of gene neighbors indexes from the adjacency matrix:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">ind_adj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/neighbour_index.html">neighbour_index</a></span><span class="op">(</span><span class="va">W</span><span class="op">)</span></span></code></pre></div>
 <p>Now, we can apply <code>mND</code> function to find functionally
 related genes on the basis of <span class="math inline">\(x_1^*\)</span>
 and <span class="math inline">\(x_2^*\)</span> and their top <span class="math inline">\(k\)</span> neighbours; precomputed mND scores
@@ -189,15 +251,53 @@ included in mND package data (i.e. <code>data(mND_score)</code>). The
 value of <span class="math inline">\(k\)</span> can be optimised
 exploring the effect of values around 3 on the ranked gene list provided
 by mND in output (see the <code>optimize_k</code> function).</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span><span class="va">mND_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mND.html">mND</a></span><span class="op">(</span><span class="va">Xs</span>, <span class="va">ind_adj</span>, k<span class="op">=</span><span class="fl">3</span>, cores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mND_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mND.html">mND</a></span><span class="op">(</span>Xs <span class="op">=</span> <span class="va">Xs</span>, ind_adj <span class="op">=</span> <span class="va">ind_adj</span>, k<span class="op">=</span><span class="fl">3</span>, BPPARAM <span class="op">=</span> <span class="va">BPPARAM</span><span class="op">)</span></span></code></pre></div>
 <p>Empirical <span class="math inline">\(p\)</span>-values are
 calculated by using the pool of <span class="math inline">\(r\)</span>
-permutated versions of <span class="math inline">\(X0\)</span>:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span><span class="va">mND_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/signif_assess.html">signif_assess</a></span><span class="op">(</span><span class="va">mND_score</span><span class="op">)</span></span></code></pre></div>
+permuted versions of <span class="math inline">\(X0\)</span>:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mND_score</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/signif_assess.html">signif_assess</a></span><span class="op">(</span><span class="va">mND_score</span>, BPPARAM <span class="op">=</span> <span class="va">BPPARAM</span><span class="op">)</span></span></code></pre></div>
+<p>You will obtain a list with the following data frames</p>
+<pre><code><span><span class="co">## $mND</span></span>
+<span><span class="co">##                mND          p       mNDp       fdr</span></span>
+<span><span class="co">## FAM3C    0.1094030 0.07843137 0.12094609 0.3867690</span></span>
+<span><span class="co">## VTI1B    0.1477348 0.03921569 0.20779496 0.2453133</span></span>
+<span><span class="co">## MAGED2   0.1432691 0.01960784 0.24464204 0.2575517</span></span>
+<span><span class="co">## CLU      0.1790824 0.03921569 0.25188654 0.1717788</span></span>
+<span><span class="co">## SERPINA3 0.1060675 0.17647059 0.07990357 0.4032586</span></span>
+<span><span class="co">## APOOL    0.1211439 0.09803922 0.12218573 0.3336046</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## $t</span></span>
+<span><span class="co">##                 t1        t2</span></span>
+<span><span class="co">## FAM3C    0.1346339 0.4650260</span></span>
+<span><span class="co">## VTI1B    0.1346339 0.4650260</span></span>
+<span><span class="co">## MAGED2   0.1346339 0.4650260</span></span>
+<span><span class="co">## CLU      0.1806586 0.4878134</span></span>
+<span><span class="co">## SERPINA3 0.1346339 0.4650260</span></span>
+<span><span class="co">## APOOL    0.1346339 0.4650260</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## $pl</span></span>
+<span><span class="co">##                  t1         t2</span></span>
+<span><span class="co">## FAM3C    0.07843137 0.01960784</span></span>
+<span><span class="co">## VTI1B    0.13725490 0.01960784</span></span>
+<span><span class="co">## MAGED2   0.07843137 0.01960784</span></span>
+<span><span class="co">## CLU      0.01960784 0.01960784</span></span>
+<span><span class="co">## SERPINA3 0.07843137 0.01960784</span></span>
+<span><span class="co">## APOOL    0.11764706 0.01960784</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## $tp</span></span>
+<span><span class="co">##                tp1       tp2</span></span>
+<span><span class="co">## FAM3C    0.1488391 0.7940646</span></span>
+<span><span class="co">## VTI1B    0.1161180 0.7940646</span></span>
+<span><span class="co">## MAGED2   0.1488391 0.7940646</span></span>
+<span><span class="co">## CLU      0.3084872 0.8329755</span></span>
+<span><span class="co">## SERPINA3 0.1488391 0.7940646</span></span>
+<span><span class="co">## APOOL    0.1251313 0.7940646</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="gene-classification">Gene classification<a class="anchor" aria-label="anchor" href="#gene-classification"></a>
+</h2>
 <p>Lastly, let’s classify genes in every layer. We define the set of the
 high scoring genes as:</p>
 <ul>
@@ -206,25 +306,17 @@ high scoring genes as:</p>
 frequency greater than zero;</li>
 <li>
 <span class="math inline">\(H_2\)</span>: top 1200 differentially
-expressed genes (FDR &lt; <span class="math inline">\(10^-7\)</span>).
-Further, we set the cardinalities of gene sets <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span>, containing the genes with the
-highest scoring neighborhoods, as <span class="math inline">\(|H_1|=|N_1|\)</span> and <span class="math inline">\(|H_2|=|N_2|\)</span>.</li>
+expressed genes (FDR &lt; <span class="math inline">\(10^-7\)</span>).</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">X0</span><span class="op">)</span></span>
-<span><span class="va">Hl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>l1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">X0</span><span class="op">[</span><span class="va">X0</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span><span class="op">&gt;</span><span class="fl">0</span>,<span class="op">]</span><span class="op">)</span>, </span>
-<span>           l2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">X0</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">X0</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>,<span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">1200</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="va">top_Nl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">Hl</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">top_Nl</span></span>
-<span><span class="co">##   l1   l2 </span></span>
-<span><span class="co">## 1238 1200</span></span>
-<span></span>
-<span><span class="va">class_res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/classification.html">classification</a></span><span class="op">(</span><span class="va">mND_score</span>, <span class="va">X0</span>, <span class="va">Hl</span>, top <span class="op">=</span> <span class="va">top_Nl</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#Classification of genes in every layer</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">class_res</span><span class="op">$</span><span class="va">gene_class</span><span class="op">)</span></span>
+<p>Further, we set the cardinalities of gene sets <span class="math inline">\(N_1\)</span> and <span class="math inline">\(N_2\)</span>, containing the genes with the
+highest scoring neighborhoods, as <span class="math inline">\(|H_1|=|N_1|\)</span> and <span class="math inline">\(|H_2|=|N_2|\)</span>:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Hl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>l1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">X0</span><span class="op">[</span><span class="va">X0</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span><span class="op">&gt;</span><span class="fl">0</span>, <span class="op">]</span><span class="op">)</span>, l2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">X0</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html" class="external-link">order</a></span><span class="op">(</span><span class="va">X0</span><span class="op">[</span>,<span class="fl">2</span><span class="op">]</span>, decreasing <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>, <span class="fl">2</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">1200</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">top_Nl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lengths.html" class="external-link">lengths</a></span><span class="op">(</span><span class="va">Hl</span><span class="op">)</span></span></code></pre></div>
+<p>The classification is computed as follows:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">class_res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/classification.html">classification</a></span><span class="op">(</span>mND <span class="op">=</span> <span class="va">mND_score</span>, X0 <span class="op">=</span> <span class="va">X0</span>, Hl <span class="op">=</span> <span class="va">Hl</span>, top <span class="op">=</span> <span class="va">top_Nl</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## $gene_class</span></span>
 <span><span class="co">##        L1 L2</span></span>
 <span><span class="co">## TP53    I  L</span></span>
 <span><span class="co">## TRIM28  M NS</span></span>
@@ -232,49 +324,19 @@ highest scoring neighborhoods, as <span class="math inline">\(|H_1|=|N_1|\)</spa
 <span><span class="co">## RPS27A  M  L</span></span>
 <span><span class="co">## UBA52   M  L</span></span>
 <span><span class="co">## CCNA2   L  M</span></span>
-<span></span>
-<span><span class="co">#Occurrence of (M; L; I; NS) for each gene across layers</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">class_res</span><span class="op">$</span><span class="va">occ_labels</span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## $occ_labels</span></span>
 <span><span class="co">##          I   L   M  NS</span></span>
 <span><span class="co">## TP53   0.5 0.5 0.0 0.0</span></span>
 <span><span class="co">## TRIM28 0.0 0.0 0.5 0.5</span></span>
 <span><span class="co">## CCNB1  0.0 0.0 1.0 0.0</span></span>
 <span><span class="co">## RPS27A 0.0 0.5 0.5 0.0</span></span>
 <span><span class="co">## UBA52  0.0 0.5 0.5 0.0</span></span>
-<span><span class="co">## CCNA2  0.0 0.5 0.5 0.0</span></span></code></pre></div>
-<p>A summary of previous results can be obtained with
-<code>plot_results</code> function, that gives in output the following
-plots:</p>
-<ul>
-<li>genes ranked by mND score and the corresponding p-value;</li>
-<li>gene networks composed of the top <span class="math inline">\(n\)</span> ranking genes;</li>
-<li>gene classification for the top 100 ranking genes across layers;
-legend: brown: isolated; orange: linker; purple: module; grey: not
-significant.</li>
-</ul>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/plot_results.html">plot_results</a></span><span class="op">(</span><span class="va">mND_score</span>, <span class="va">class_res</span>, <span class="va">W</span>, n <span class="op">=</span> <span class="fl">150</span>, directory <span class="op">=</span> <span class="st">"~/mND_results"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="mND_files/figure-html/unnamed-chunk-15-1.png" width="576"></p>
-<p>###Optimization of k value</p>
-<p>An opportunity to optimize the value of <span class="math inline">\(k\)</span> relies in selecting a value that yields
-connected networks enriched in initial scores; the
-<code>optimize_k</code> function can be used for such objective.</p>
-<p>Let’s use the <code>optimize_k</code> function to create a list with
-mND scores calculated for different <span class="math inline">\(k\)</span> values (<span class="math inline">\(1
-&lt;= k &lt;= 5\)</span>) and evaluate which value of <span class="math inline">\(k\)</span> yields connected networks enriched in
-initial scores. You can load precomputed results using
-<code>data(k_results)</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mND</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">k_val</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span>,<span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">k_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/optimize_k.html">optimize_k</a></span><span class="op">(</span><span class="va">Xs</span>, <span class="va">X0</span>, <span class="va">k_val</span>, <span class="va">ind_adj</span>, <span class="va">W</span>, top <span class="op">=</span> <span class="fl">200</span>, cores <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
-<p><span class="math inline">\(k = 3\)</span> is a reasonable choice to
-obtain connected gene networks enriched in genes with the highest
-mutation frequencies and expression variations.</p>
-<p><img src="mND_files/figure-html/unnamed-chunk-17-1.png" width="384"></p>
-<p>##References</p>
+<span><span class="co">## CCNA2  0.0 0.5 0.5 0.0</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 class="unnumbered" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Mutect" class="csl-entry">
 Cibulskis et al. 2013. <span>“Sensitive Detection of Somatic Point

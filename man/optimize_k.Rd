@@ -4,7 +4,15 @@
 \alias{optimize_k}
 \title{Optimization of k value}
 \usage{
-optimize_k(Xs, X0, k, ind_adj, W, top = 200, cores = 4)
+optimize_k(
+  Xs = NULL,
+  X0 = NULL,
+  k = NULL,
+  ind_adj = NULL,
+  W = NULL,
+  top = 200,
+  BPPARAM = NULL
+)
 }
 \arguments{
 \item{Xs}{a matrix or list of matrices (if X0 was permuted, where the first element of the list is the one obtained with real data) with network diffusion scores, see 'ND' function}
@@ -19,7 +27,7 @@ optimize_k(Xs, X0, k, ind_adj, W, top = 200, cores = 4)
 
 \item{top}{numeric; number of genes to be considered at the top of the list of genes ranked by mND}
 
-\item{cores}{numeric; number of cores to run in parallel in case of permutations}
+\item{BPPARAM}{optional BiocParallelParam instance determining the parallel back-end to be used during evaluation. If NULL, parallel evaluation is disabled using SerialParam(). See ?bplapply.}
 }
 \value{
 list with calculation of w at varying k and plot with results.

@@ -4,7 +4,7 @@
 \alias{neighbour_index}
 \title{Index neighbours}
 \usage{
-neighbour_index(W)
+neighbour_index(W = NULL)
 }
 \arguments{
 \item{W}{matrix; symmetrically normalized adjacency matrix W = D^-1 A D^-1, see 'normalize_adj_mat' function}

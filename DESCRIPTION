@@ -1,16 +1,17 @@
 Package: mND
 Type: Package
 Title: Gene relevance based on multiple evidences in complex networks
-Version: 0.1.7
-Author: Noemi Di Nanni [aut],
-    Ettore Mosca [aut, cre]
+Version: 2.0
+Date: 2024-04-09
+Author: Noemi Di Nanni [aut], Ettore Mosca [aut, cre]
 Maintainer: Ettore Mosca <ettore.mosca@itb.cnr.it>
-Description: Network diffusion based method for integrative multi-omics analysis (mND) to assess gene relevance on the basis of gene position in a genome-scale network in relation to one or more types of biological evidences. 
+Description: Network analysis of multi-omics data by means of mult-layer network diffusion (mND).
 License: GPL (>=2)
 LazyData: true
-Depends: R (>= 3.3.3), parallel, igraph
-RoxygenNote: 7.1.2
-Suggests: knitr, rmarkdown,
+Depends: R (>= 3.5)
+Imports: Matrix, BiocParallel, NPATools, grDevices, graphics, igraph, dmfind
+RoxygenNote: 7.2.3
+Suggests: knitr, rmarkdown, devtools
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2019-10-29 11:03:01 UTC; noemi
+Encoding: UTF-8

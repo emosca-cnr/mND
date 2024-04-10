@@ -10,18 +10,32 @@
 #' \item{\code{tp}}{: product of the sum of top k neighbours (t) and -log10(pl)}
 #' }
 #' @export
+#' @importFrom BiocParallel SerialParam
+#' @importFrom NPATools eFDR calc_p
+#' @param BPPARAM optional BiocParallelParam instance determining the parallel back-end to be used during evaluation. If NULL, parallel evaluation is disabled using SerialParam(). See ?bplapply.
 
-signif_assess <- function(mND){
+signif_assess <- function(mND=NULL, BPPARAM = NULL){
 
+  if (is.null(BPPARAM)) {
+    BPPARAM <- SerialParam()
+  }
+  
   mND_perm <- lapply(mND, function(x) x[[1]])
+  
+  cat("p-values...\n")
   p_val <- calc_p(mND_perm)
   vect_tru <- mND[[1]][[1]]
-  p_val <- p_val[match(rownames(vect_tru), rownames(p_val)),]
-  mND_score <- data.frame(mND=vect_tru,p=p_val,mNDp=vect_tru*-log10(p_val),stringsAsFactors = F)
+  p_val <- p_val[match(rownames(vect_tru), rownames(p_val)), ]
+  vect_tru_num <- unlist(vect_tru)
+  
+  cat("eFDR...\n")
+  fdr_res <- eFDR(real_values=vect_tru_num, all_values=unlist(mND_perm), BPPARAM = BPPARAM)
+  
+  mND_score <- data.frame(mND=vect_tru_num, p=unlist(p_val), mNDp=vect_tru_num*-log10(p_val), fdr=fdr_res, stringsAsFactors = F)
   rownames(mND_score) <- rownames(vect_tru)
-  colnames(mND_score) <- c("mND","p", "mNDp")
+  #colnames(mND_score) <- c("mND","p", "mNDp")
 
-
+  cat("pval sum...\n")
   sum_perm <- lapply(mND, function(x) x[[2]])
   ###pval sum
   p_val_sum <- vector("list", dim(sum_perm[[1]])[2])

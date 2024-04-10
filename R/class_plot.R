@@ -7,10 +7,11 @@
 #' @importFrom graphics abline axis barplot image layout layout.show par plot
 #' @param n numeric; number of top n genes ranked by mND to plot
 #'
-class_plot <- function(classification_mat, directory, n){
+class_plot <- function(classification_mat=NULL, directory=NULL, n=NULL){
 
   calc_L <- classification_mat
   levs <- unique( unlist( lapply(classification_mat, levels ) ) )
+  
   #  Set these as the levels for each column
   tempBp <- apply(classification_mat,1,function(x) table(factor(x, levels=levs)))
   tempBp <- t(tempBp)
@@ -27,7 +28,8 @@ class_plot <- function(classification_mat, directory, n){
   temp2 <-ifelse(classification_mat=="M", 3, ifelse(classification_mat=="L", 2,ifelse(classification_mat=="I", 1,0 )))
   temp2 <- temp2[1:n,]
   tt <- rotate(temp2)
-  jpeg(paste0(directory,"/classification.jpeg"), width = 25*nL, height = 400, units = "mm", res=300)
+  
+  jpeg(file.path(directory, "classification.jpeg"), width = 25*nL, height = 400, units = "mm", res=300)
   if(nL>2){
     par(mar = c(2.9,6,2.9,0))
     layout.show(layout(matrix(c(1,2), nrow=1, byrow = T), widths =c(0.8, 0.2)))

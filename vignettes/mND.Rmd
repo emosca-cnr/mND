@@ -1,11 +1,12 @@
 ---
-title: "Gene relevance based on multiple evidences in complex networks."
-author: "Noemi Di Nanni & Ettore Mosca"
-date: '2019-05-8'
+title: "mND: Gene relevance based on multiple evidences in complex networks."
+date: "2024-04-09"
 output:
-  rmarkdown::html_vignette:
-  fig_width: 7
-  fig_height: 3.5
+  rmarkdown::html_document:
+    toc: true
+    number_sections: true
+    anchor_sections: true
+toc-title: "Contents"
 bibliography: reference.bib 
 vignette: >
   %\VignetteIndexEntry{Gene relevance based on multiple evidences in complex networks.}
@@ -13,57 +14,49 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
 ---
 
-![https://doi.org/10.1093/bioinformatics/btz652](overview.jpeg)
+```{r style, echo=FALSE, message=FALSE, warning=FALSE}
+  devtools::load_all()
+```
 
-## Description
+![https://doi.org/10.1093/bioinformatics/btz652](overview.jpeg){width=80%}
+
+# Introduction
 
 This document describes the R package mND [@mND], a new network diffusion based method for integrative multi-omics analysis.
 
-## Installation
+# Installation
 
 The package can be installed from within R:
 ```{r, eval=FALSE}
-install.packages(c("devtools", "igraph", "parallel"))
-library(devtools)
-install_github("emosca-cnr/mND", build_vignettes = TRUE)
+install.packages(c("devtools", "igraph"))
+devtools::install_github("emosca-cnr/mND", build_vignettes = TRUE)
 library(mND)
 ```
 
-##Input data
-The package requires:
+# Definition of the input matrices
 
-* An adjacency matrix ($A$) of undirected interaction network $G$;
-* A score matrix $X0=[x_1, x_2, ..., x_L]$, in which each column $x_i$ (layer) represents a score vector over all vertices of $G$.
-* The number of top k-neighbour to consider ($k$). 
+The analysis requires the following inputs:
 
-Optional arguments are:
-
-* Number of permutations ($r$) of the input matrix;
-* Number of cores ($cores$).
-
-## Summary
-All the analysis can be run using the following functions:
-
-```{r, eval=F, message=FALSE, warning = FALSE}
-W <- normalize_adj_mat(A)
-X0_perm <- perm_X0(X0, r = 50, W)
-Xs <- ND(X0_perm, W, cores = 4)
-ind_adj <- neighbour_index(W)
-mND_score <- mND(Xs, ind_adj, k = 3, cores = 4)
-mND_score <- signif_assess(mND_score)
-class_res <- classification(mND_score, X0, Hl, top, alpha)
-plot_results(mND_score, class_res, W, n = 150, directory = "~/mND_results")
+- $\mathbf{W}$, an $N \times N$ *normalized adjacency matrix*, which represents the interactions between genes, e.g.: 
+```{r W, echo=FALSE}
+head(mND_demo$W)
 ```
 
-Most of the analyses can be easily carried out through the wrapper function `framework_mND`:
-```{r, eval=F, message=FALSE, warning = FALSE}
-W <- normalize_adj_mat(A)
-mND_score <- framework_mND(X0, W, k = 3, r = 50, cores = 4)
-class_res <- classification(mND_score, X0, Hl, top, alpha)
-plot_results(mND_score, class_res, W, n = 150, directory = "~/mND_results")
+- $\mathbf{X}_0$, a $N \times m$ matrix with column vectors that contain gene-related quantities, e.g.:
+
+```{r X0, echo=FALSE}
+mND_demo$X0
 ```
 
-##Case study: integration of mutation and expression changes in breast cancer
+**IMPORTANT**:
+
+* the two matrices must be defined over the same identifiers;
+* the normalization of the adjacency matrix must be done by means of the function `NPATools::normalize_adj_mat()`, which requires a symmetric binary adjacency matrix;
+* the relevance of the genes corresponding to the rows of $\mathbf{X}_0$ is proportional to the values, that is, the higher the better; negative values are not allowed.
+
+
+# Case study: integration of mutation and expression changes in breast cancer
+
 As proof of principle, mND is applied to find functionally related genes on the basis of gene mutations ($L_1$) and gene expression variation ($L_2$) in breast cancer (BC).
 
 Somatic mutations and gene expression data from matched tumour-normal samples (blood for SM and solid tissue for GE) were collected from The Cancer Genome Atlas (TCGA) [@TCGA] for BC, using the R package TCGAbiolinks [@TCGAbiolinks] and considering the human genome version 38 (hg38). 
@@ -72,184 +65,80 @@ Mutation Annotation Format files were obtained from 4 pipelines: Muse [@Muse], M
 
 Gene expression data were obtained using the TCGA workflow ``HTSeq-Counts''. The R package limma [@limma] was used to normalize and quantify differential expression in matched tumor-normal samples, yielding log-fold changes, the corresponding p-values and FDRs (BH method). 
 
-Adjacency matrix ($A$) of undirected interaction network STRING [@string] was used; $X0$ matrix was defined as the two column vectors: $x_1 = f$ and $x_2 = -log_{10}(FDR)$.
+We obtained the normalized adjacency matrix ($W$) using the interactions available in STRING [@string], while $X0$ matrix was defined as the two column vectors: $x_1 = f$ and $x_2 = -log_{10}(FDR)$.
 
-You can load $X0$ and $A$ as follows: 
-```{r, eval=TRUE, message=FALSE, collapse=TRUE}
-library(mND)
-data(X0)
-head(X0,3) #L1: mutations, L2: gene expression variations
+# Permutations
 
-data(A) #adjacency matrix of STRING itnteractome
-```
-
-Let's normalize the adjacency matrix $W$ and create 50 permutations of $X0$. The list X0_perm has 51 elements, the first is the input matrix $X0$, the others are its permutations;  you can load precomputed permutations using `data(X0_perm)`, these permutations are obtained with seed equal to 2.
+A set of $k$ permutations can be created using the two functions of NPATools `perm_vertices()` and `perm_X0()`:
 
 ```{r, eval=FALSE, message=FALSE}
-library(mND)
-W <- normalize_adj_mat(A)
-X0_perm <- perm_X0(X0, r = 50, W, seed_n = 2)
+vert_deg <- setNames(rowSums(sign(W)), rownames(W))
+perms <- perm_vertices(vert_deg, method = "d", k = 99, cut_par = 9, bin_type = "number")
+X0_perm <- perm_X0(X0, perms = perms)
+```
+Here's how X0_perm should look like:
+```{r, eval=T, echo=F, message=FALSE}
+mND_demo$X0_perm
 ```
 
-```{r, eval=F, message=FALSE, echo=FALSE, results='hide'}
-library(mND)
-W <- normalize_adj_mat(A)
-```
+# Network Diffusion (ND)
 
-
-Now, let's apply network diffusion to our list X0_perm; you can load precomputed diffused scores using `data(Xs)`:
-```{r, eval=FALSE, message=FALSE}
-library(mND)
-Xs <- ND(X0_perm, W, cores = 4)
-```
-
-
-
-Network-diffusion, which quantifies the network proximity of each gene to other altered genes (positive elements of $x_1$ and $x_2$), transformed the input vector $x_1$ and $x_2$ into $x_1^*$ and $x_2^*$ respectively. 
-
-```{r, fig.width=7,eval=T, fig.height=4, echo=FALSE, results='hide',message=FALSE}
-data(Xs)
-par(mfrow=c(1, 2))
-par(mar = c(4,5,3,1))
-X0 <- as.data.frame(X0)
-X0$r <- rank(-X0$L2)
-#col_X0 <- ifelse(X0[,1]>0 & 10^(-X0[,2])<=0.05, "green", ifelse(X0[,1]>0, "yellow", ifelse(10^(-X0[,2])<=0.05, "blue","red")))
-col_X0 <- ifelse(X0[,1]>0 & X0$r <=1200, "green", ifelse(X0[,1]>0, "yellow", ifelse(X0$r <=1200, "blue","red")))
-plot(X0[,1]/max(X0[,1]), X0[,2]/max(X0[,2]),col="black", bg=adjustcolor(col_X0,0.7), pch=21,ylab=expression(x[2]),xlab=expression(x[1]))
-legend("topright",c("Top ranking genes in x1 and x2", "Top ranking genes in x1", "Top ranking genes in x2", "not significant in x1 and x2"), col="black", pt.bg=c("green", "yellow", "blue", "red"), pch=21, cex=0.6)
-plot(Xs[[1]][,1]/max(Xs[[1]][,1]), Xs[[1]][,2]/max(Xs[[1]][,2]),col="black", bg=adjustcolor(col_X0,0.7), pch=21, ylab=expression(x[2]^{'*'}),xlab=expression(x[1]^{'*'}))
-legend("topright",c("Top ranking genes in x1 and x2", "Top ranking genes in x1", "Top ranking genes in x2", "not significant in x1 and x2"), col="black", pt.bg=c("green", "yellow", "blue", "red"), pch=21, cex=0.6)
-```
-
-Let's use the function `neighbour_index` to retrive the list of gene neighbours indexes from the adjacency matrix:
+Next, we run the ND over the list of permutations `X0_perm`. This can be time-consuming, so it's a good idea to run it in parallel:
 
 ```{r, eval=FALSE, message=FALSE}
-library(mND)
+BPPARAM <- MulticoreParam(4)
+Xs <- run_ND(X0 = X0_perm, W=W, BPPARAM = BPPARAM)
+```
+Here's how $Xs$ should look like:
+```{r, eval=T, echo=F, message=FALSE}
+mND_demo$Xs
+```
+
+# Calculation of mND score and significance assessment
+
+Let's use the function `neighbour_index` to retrieve the list of gene neighbors indexes from the adjacency matrix:
+
+```{r, eval=FALSE, message=FALSE}
 ind_adj <- neighbour_index(W)
 ```
 
 Now, we can apply `mND` function to find functionally related genes on the basis of $x_1^*$ and $x_2^*$ and their top $k$ neighbours; precomputed mND scores (calculated with $k = 3$) are included in mND package data (i.e. `data(mND_score)`). The value of $k$ can be optimised exploring the effect of values around 3 on the ranked gene list provided by mND in output (see the `optimize_k` function).
 
 ```{r, eval=F, message=FALSE}
-library(mND)
-mND_score <- mND(Xs, ind_adj, k=3, cores = 4)
+mND_score <- mND(Xs = Xs, ind_adj = ind_adj, k=3, BPPARAM = BPPARAM)
 ```
 
-```{r, eval=T, echo=FALSE,message=FALSE}
-data("mND_score")
+Empirical $p$-values are calculated by using the pool of $r$ permuted versions of $X0$:
+```{r, eval=F, message=FALSE}
+mND_score <- signif_assess(mND_score, BPPARAM = BPPARAM)
 ```
 
-Empirical $p$-values are calculated by using the pool of $r$ permutated versions of $X0$:
-```{r, eval=T, message=FALSE}
-library(mND)
-mND_score <- signif_assess(mND_score)
+You will obtain a list with the following data frames
+```{r, eval=T, echo=F, message=FALSE}
+mND_demo$mND_score 
 ```
+
+# Gene classification
 
 Lastly, let's classify genes in every layer. We define the set of the high scoring genes as:
 
 * $H_1$: genes with a mutation frequency greater than zero;
 * $H_2$: top 1200 differentially expressed genes (FDR < $10^-7$).
-Further, we set the cardinalities of gene sets $N_1$ and $N_2$, containing the genes with the highest scoring neighborhoods, as $|H_1|=|N_1|$ and $|H_2|=|N_2|$.
 
-```{r, eval=T, message=FALSE, collapse=TRUE}
-library(mND)
-data(X0)
-Hl <- list(l1 = rownames(X0[X0[,1]>0,]), 
-           l2 = names(X0[order(X0[,2], decreasing = T),2][1:1200])
-)
-top_Nl <- unlist(lapply(Hl, function(x) length(x)))
-top_Nl
+Further, we set the cardinalities of gene sets $N_1$ and $N_2$, containing the genes with the highest scoring neighborhoods, as $|H_1|=|N_1|$ and $|H_2|=|N_2|$:
 
-class_res <- classification(mND_score, X0, Hl, top = top_Nl)
-
-#Classification of genes in every layer
-head(class_res$gene_class)
-
-#Occurrence of (M; L; I; NS) for each gene across layers
-head(class_res$occ_labels)
+```{r, eval=F, message=FALSE, collapse=TRUE}
+Hl <- list(l1 = rownames(X0[X0[, 1]>0, ]), l2 = names(X0[order(X0[,2], decreasing = T), 2][1:1200]))
+top_Nl <- lengths(Hl)
 ```
 
-A summary of previous results can be obtained with `plot_results` function, that gives in output the following plots:
+The classification is computed as follows:
 
-* genes ranked by mND score and the corresponding p-value;
-* gene networks composed of the top $n$ ranking genes;
-* gene classification for the top 100 ranking genes across layers; legend: brown: isolated; orange: linker; purple: module; grey: not significant.
-
-```{r, eval=F, message=FALSE}
-library(mND)
-plot_results(mND_score, class_res, W, n = 150, directory = "~/mND_results")
+```{r, eval=F, message=FALSE, collapse=TRUE}
+class_res <- classification(mND = mND_score, X0 = X0, Hl = Hl, top = top_Nl)
+```
+```{r, eval=T, echo=F, message=FALSE}
+mND_demo$clas_res
 ```
 
-```{r, fig.width=6,eval=T, fig.height=7, echo=FALSE, results='hide',message=FALSE}
-layout(matrix(c(1,3,2,3), nrow=2, byrow = T), widths = c(0.7,0.3))
-par(mar = c(5.5,7,2,3))
-plot(mND_score$mND$mND, -log10(mND_score$mND$p), col="black", cex=0.7, pch=16, ylab="-log10(p)", xlab="mND")
-abline(h=-log10(0.05), lty=2, lwd=2, col="orange")
-W <- normalize_adj_mat(A)
-g <- graph_from_adjacency_matrix(W, weighted = T, mode = "undirected")
-mND_score2 <- mND_score$mND
-mND_score2 <- mND_score2[order(mND_score2$mNDp,decreasing = T),]
-mND_score2 <- mND_score2[1:150,]
-
-g_sub <- induced_subgraph(g, V(g)$name %in% rownames(mND_score2))
-par(mar=c(0.5,1,0,0))
- plot.igraph(g_sub,
-                  vertex.label=NA,
-                  vertex.size=6.5,
-                  edge.width=0.8,
-                  edge.color='hotpink',
-                  edge.lty=2,
-                  edge.width = 0.7,
-                  layout=layout_with_kk)
- 
-class_genes <- class_res$gene_class
-#  Set these as the levels for each column
-n=100
-rotate <- function(x) t(apply(x, 2, rev))
-nL <- dim(class_genes)[2]
-temp2 <-ifelse(class_genes=="M", 3, ifelse(class_genes=="L", 2,ifelse(class_genes=="I", 1,0 )))
-temp2 <- temp2[1:n,]
-tt <- rotate(temp2)
-par(mar = c(2.5,6,0.5,2))
-  image(tt, col =c('0' = "gray75", '1' = "chocolate4", '2' = "chocolate1", '3' = "purple"),xaxt="none", yaxt="none")
-  xx <- seq(0, 1, length.out = ncol(temp2))
-  yy <- seq(1, 0, length.out = nrow(temp2))
-  aa<-seq(0,n)
-  bb <- seq(0,nL)
-  cc <- aa*yy[n-1]+yy[n-1]/2
-  vv <- xx+xx[2]/2
-  abline(v=vv, col="black", xpd=F)
-  abline(h=cc, col="black", xpd=F)
-  axis(1, xx,colnames(temp2),  cex.axis=0.7)
-  axis(2, yy,rownames(temp2),  cex.axis=0.7, las=2)
-```
-
-###Optimization of k value
-
-An opportunity to optimize the value of $k$ relies in selecting a value that yields connected networks enriched in initial scores; the `optimize_k` function can be used for such objective.
-
-Let's use the `optimize_k` function to create a list with mND scores calculated for different $k$ values ($1 <= k <= 5$) and evaluate which value of $k$ yields connected networks enriched in initial scores. 
-You can load precomputed results using `data(k_results)`.
-
-```{r, eval=F, message=FALSE}
-library(mND)
-
-k_val <- seq(1,5,1)
-k_results <- optimize_k(Xs, X0, k_val, ind_adj, W, top = 200, cores = 4)
-```
-
-$k = 3$ is a reasonable choice to obtain connected gene networks enriched in genes with the highest mutation frequencies and expression variations.
-
-```{r, fig.width=4, eval=T, fig.height=4, echo=FALSE, results='hide',message=FALSE}
-j<-1
-data(k_results)
-k_val <- seq(1,5,1)
-par(mar = c(5,4,2,3))
-  plot(k_results[[j]], type="l", ylim=c(0, max(unlist(k_results))), ylab=expression(omega), xlab="n")
-  for(j in 2:length(k_results)){ #k
-    lines(k_results[[j]], col=j)
-  }
-legend("bottomright", legend = k_val, col=1:length(k_val), lty= 1, cex=0.7)
-```
-
-##References
+# References

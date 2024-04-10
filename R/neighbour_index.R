@@ -7,8 +7,9 @@
 #' @export
 #'
 
-neighbour_index <- function(W){
+neighbour_index <- function(W=NULL){
 
-  ind_adj <- apply(W,1, FUN=function(x) which(x>0,arr.ind = T))
+  ind_adj <- apply(W, 1, FUN=function(x) which(x>0, arr.ind = T))
+  
   return(ind_adj)
 }

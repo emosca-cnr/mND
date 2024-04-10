@@ -5,10 +5,10 @@
 #' @param top numeric; number of genes to be considered at the top of the list of genes ranked by mND
 #' @param G graph; gene x gene undirected interaction graph
 #' @return list with calculation of w at varying k and plot with results.
-#' @import igraph
-#' @importFrom "graphics" "legend" "lines"
+#' @importFrom graphics legend lines
+#' @importFrom dmfind omega
 
-eval_k <- function (mND, X0, G, top = 200){
+eval_k <- function (mND=NULL, X0=NULL, G=NULL, top = 200){
 
   n_k <- length(mND)
   if(dim(mND[[1]][[1]])[2]>2){
@@ -60,8 +60,6 @@ eval_k <- function (mND, X0, G, top = 200){
   }
   k <- names(mND)
   legend("bottomright", legend = k, col=1:length(k), lty= 1, cex=0.7)
-  # dev.off()
-
 
   return(optimal)
 }

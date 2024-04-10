@@ -4,7 +4,7 @@
 \alias{class_plot}
 \title{Classification plot}
 \usage{
-class_plot(classification_mat, directory, n)
+class_plot(classification_mat = NULL, directory = NULL, n = NULL)
 }
 \arguments{
 \item{classification_mat}{data.frame; see 'classification' function}

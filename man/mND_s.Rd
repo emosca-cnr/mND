@@ -4,7 +4,7 @@
 \alias{mND_s}
 \title{Integration with mND function}
 \usage{
-mND_s(output, ind_adj, k)
+mND_s(output = NULL, ind_adj = NULL, k = NULL, min.norm.val = 0)
 }
 \arguments{
 \item{output}{Xs}
@@ -12,6 +12,8 @@ mND_s(output, ind_adj, k)
 \item{ind_adj}{index of neighbours obtained from adj matrix, see 'neighbour_index' function}
 
 \item{k}{number of top k first neighbors}
+
+\item{min.norm.val}{normalized ND values below this value will be set to 0; this is useful to denoise the steady state of ND and focus only on the highest scores}
 }
 \value{
 a list with:

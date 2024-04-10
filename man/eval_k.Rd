@@ -4,7 +4,7 @@
 \alias{eval_k}
 \title{Evaluation of the parameter k}
 \usage{
-eval_k(mND, X0, G, top = 200)
+eval_k(mND = NULL, X0 = NULL, G = NULL, top = 200)
 }
 \arguments{
 \item{mND}{list; list of mND score obtained for different k values, list components should be named as the k values used}

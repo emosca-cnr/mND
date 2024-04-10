@@ -1,0 +1,11 @@
+bibentry(
+  bibtype  = "Article",
+  title    = "Gene relevance based on multiple evidences in complex networks",
+  author   = "Di Nanni, Noemi and Gnocchi, Matteo and Moscatelli, Marco and Milanesi, Luciano and Mosca, Ettore",
+  journal  = "Bioinformatics",
+  year     = "2020",
+  volume   = "36",
+  number   = "3",
+  pages    = "865–871",
+  doi      = "10.1093/bioinformatics/btz652"
+)

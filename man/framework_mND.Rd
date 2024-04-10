@@ -5,15 +5,16 @@
 \title{mND global function}
 \usage{
 framework_mND(
-  X0,
-  W,
+  X0 = NULL,
+  W = NULL,
   alpha = 0.7,
   nMax = 10000,
   eps = 1e-06,
   k = 3,
-  r = NULL,
+  r = 0,
   seed_n = NULL,
-  cores = 1
+  BPPARAM = NULL,
+  ...
 )
 }
 \arguments{
@@ -33,7 +34,9 @@ framework_mND(
 
 \item{seed_n}{numeric; a given 'seed_n' will determine the same permutations of X0 and ensures the reproducibility of the analysis}
 
-\item{cores}{numeric; number of cores to run in parallel}
+\item{BPPARAM}{optional BiocParallelParam instance determining the parallel back-end to be used during evaluation. If NULL, parallel evaluation is disabled using SerialParam(). See ?bplapply.}
+
+\item{...}{additional parameter to NPATools::perm_vertices()}
 }
 \value{
 list with:
@@ -45,6 +48,6 @@ list with:
 }
 }
 \description{
-It's calculate permutations of X0 (if r parameter is used), applies network-diffusion on data, computes the mND score and the relative empirical p-value (if data are permuted).
+It calculates permutations of X0 (if r parameter is used), applies network-diffusion on data, computes the mND score and the relative empirical p-value (if data are permuted).
 Outputs of function can be used to classify genes in each layer with the classification function.
 }
